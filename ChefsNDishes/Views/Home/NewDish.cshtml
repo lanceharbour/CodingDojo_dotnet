@@ -1,0 +1,56 @@
+@model CnDViewModel
+<h1>Add a new Dish!</h1>
+<hr width=50% class="float-left">
+<div class="row mt-5">
+    <div class="col">
+        <form asp-action="AddDish" asp-controller="Home" method="POST">
+            <div class="row">
+                <div class="col-sm">
+                    <label>Name of Dish</label>
+                    <div class="form-group row form-row">
+                        <div class="col-sm-10">
+                        <input asp-for="VMDish.DishName" class="form-control">
+                        </div>
+                        <span asp-validation-for="VMDish.DishName"></span>
+                    </div>
+                    <label>Number of Calories</label>
+                    <div class="form-group row form-row">
+                        <div class="col-sm-10">
+                        <input asp-for="VMDish.Calories" class="form-control" value="0">
+                        </div>
+                        <span asp-validation-for="VMDish.Calories"></span>
+                    </div>
+                    <p>Description:</p>
+                    <textarea asp-for="VMDish.Description" class="form-control" rows="8" cols="75"></textarea>
+                    <span asp-validation-for="VMDish.Description"></span><br>
+                </div>
+                <div class="col-sm">
+                    <div class="col-sm-10 mt-1" style="height: 300px;">
+                    <p>Chef:</p>
+                    <select class="form-control" asp-for="VMDish.ChefId">
+                    @foreach (var chef in Model.ChefList)
+                        {
+                            <option value="@chef.ChefId">@chef.FirstName @chef.LastName</option>
+                        }
+                    </select>
+                    </div>
+                    <div class="form-group row form-row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-secondary">Add Dish</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <p>Tastiness: <br><select class="form-control" style="width:80px" asp-for="VMDish.Tastiness">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        </select>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

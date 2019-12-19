@@ -1,0 +1,10 @@
+﻿<h1>Welcome to CRUDelicious</h1>
+<h4>Check out some recent dishes!</h4>
+<hr align="left" width=50%>
+<ul style="list-style: none;">
+@foreach (var dish in Model)
+    {
+
+        <li style="font-size: 20px;"><a href="/@dish.DishId">@dish.Name </a>by @dish.Chef</li>
+    }
+</ul>

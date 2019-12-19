@@ -1,0 +1,73 @@
+﻿
+@model IndexViewModel
+<div class="row mt-5">
+    <div class="col">
+        <h3>Registration</h3>
+        <form asp-action="register" asp-controller="Home" method="POST">
+            <span asp-validation-for="NewUser.FirstName"></span>
+            <div class="form-group row form-row">
+                <label class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                <input asp-for="NewUser.FirstName" class="form-control-lg" placeholder="First Name">
+                </div>
+            </div>
+            <span asp-validation-for="NewUser.LastName"></span>
+            <div class="form-group row form-row">
+                <label class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                <input asp-for="NewUser.LastName" class="form-control-lg" placeholder="Last Name">
+                </div>
+            </div>
+                <span asp-validation-for="NewUser.Email"></span>
+            <div class="form-group row form-row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input asp-for="NewUser.Email" class="form-control-lg" placeholder="Email">
+                </div>
+            </div>
+                <span asp-validation-for="NewUser.Password"></span>
+            <div class="form-group row form-row">
+                <label class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                <input asp-for="NewUser.Password" class="form-control-lg" placeholder="Password">
+                </div>
+            </div>
+            <span asp-validation-for="NewUser.ConfPassword"></span>
+            <div class="form-group row form-row">
+                <label class="col-sm-2 col-form-label">Confirm PW</label>
+                <div class="col-sm-10">
+                <input asp-for="NewUser.ConfPassword" class="form-control-lg" placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="form-group row form-row">
+                <div class="col-sm-10">
+                    <button type="submit" class="shadow btn btn-dark">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col">
+        <h3>Login</h3>
+        <form action="login" method="POST">
+            <span asp-validation-for="LoggedUser.Email"></span>
+            <div class="form-group row form-row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input asp-for="LoggedUser.Email" class="form-control-lg" placeholder="Email">
+                </div>
+            </div>
+            <span asp-validation-for="LoggedUser.Password"></span>
+            <div class="form-group row form-row">
+                <label class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                <input asp-for="LoggedUser.Password" class="form-control-lg" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="shadow btn btn-dark">Log In</button>
+                </div>
+            </div>
+        </form>
+    </div> 
+</div>

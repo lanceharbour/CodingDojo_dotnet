@@ -1,0 +1,17 @@
+@model Dish
+<div class="row justify-content-md-center">
+    <div class="col col-lg-8">
+        <h1 class="display-4 text-center">@Model.Name</h1>
+        <p class="lead text-center">@Model.Chef</p>
+        <hr width=75%>
+        <p class="text-center">@Model.Description</p>
+        <p><b>Calories:</b> @Model.Calories</p>
+        <p><b>Tastiness:</b> @Model.Tastiness</p>
+    </div>
+</div>
+<div class="row justify-content-md-center">
+    <div class="col col-lg-5">
+        <a href="/delete/@Model.DishId" style="width: 100px;" class="btn btn-danger">Delete</a>
+        <a href="/edit/@Model.DishId" style="width: 100px;" class="btn btn-secondary float-right">Edit</a>
+    </div>
+</div>

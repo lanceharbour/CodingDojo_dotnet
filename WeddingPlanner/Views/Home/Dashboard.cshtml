@@ -1,0 +1,50 @@
+﻿@model WeddingViewModel
+<div class="row mt-4">
+    <div class="col-sm-8">
+        <h1>Welcome to the Wedding Planner</h1>
+    </div>
+    <div class="col-sm mt-3">
+        <span><a href="/logout">Logout</a></span>
+    </div>
+</div>
+
+<div class="row mt-2 col-lg-10">
+    <table class=" table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Wedding</th>
+                <th scope="col">Date</th>
+                <th scope="col">Guests</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Wedding wedding in Model.Weddings)
+            {
+                <tr>
+                    <td><a href="/wedding/@wedding.WeddingId">@wedding.WedderOne & @wedding.WedderTwo</a></td>
+                    <td>@wedding.WeddingDate.ToString("MMM dd, yyyy")</td>
+                    <td>@wedding.Guests.Count</td>
+                    <td>
+                        @if (@Model.User.UserId == @wedding.UserId)
+                        {
+                            <a href="/delete">Delete</a>
+                        }
+                        @if(@wedding.Guests.All(g => g.UserId != Model.User.UserId))
+                        {
+                            <a href="/rsvp">RSVP</a>
+                        }
+                        @if(@wedding.Guests.Any(g => g.UserId == Model.User.UserId))
+                        {
+                            <a href="/unrsvp">UnRSVP</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<form asp-action="NewWedding" asp-controller="Home" method="GET">
+    <button class="btn btn-secondary" type="submit">New Wedding</button>
+</form>

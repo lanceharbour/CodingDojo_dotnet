@@ -1,0 +1,20 @@
+﻿<h1>Chef's | <a  asp-controller="Home" asp-action="Dishes">Dishes</a> </h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Number of Dishes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Chef chef in Model)
+        {
+        <tr>
+            <td>@chef.FirstName @chef.LastName</td>
+            <td>@chef.Age</td>
+            <td>@chef.CreatedDishes.Count</td>
+        </tr>
+        }
+    </tbody>
+</table>

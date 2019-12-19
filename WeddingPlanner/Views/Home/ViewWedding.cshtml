@@ -1,0 +1,19 @@
+@model Wedding
+<div class="row mt-4">
+    <div class="col-sm">
+        <h1>@Model.WedderOne and @Model.WedderTwo's Wedding</h1>
+    </div>
+    <div class="col-sm mt-3">
+        <span><a href="/dashboard">Dashboard</a> | <a href="/logout">Logout</a></span>
+    </div>
+</div>
+<p>Date: @Model.WeddingDate.ToString("MMM dd, yyyy")</p>
+<p>Guests:</p>
+<div class="col-sm-3">
+    <ul class="list-group list-group-flush">
+        @foreach (var guest in Model.Guests)
+            {
+                <li class="list-group-item">@guest.User.FirstName @guest.User.LastName</li>
+            }
+    </ul>
+</div>

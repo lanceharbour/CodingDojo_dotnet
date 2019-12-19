@@ -1,0 +1,5 @@
+                    @{
+                        DateTime CurrentTime = DateTime.Now;
+                        <p>@CurrentTime.ToString("MMM dd, yyyy")</p>
+                        <p>@CurrentTime.ToString("hh:mm:ss tt")</p>
+                    }
